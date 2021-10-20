@@ -125,7 +125,7 @@ def main():
         elif optiune == "2":
             print(numere_negative_nenule(l))
         elif optiune == "3":
-            n = int(input("Introduceti cifra:"))
+            n = int(input("Introduceti cifra: "))
             print(cel_mai_mic_numar(l, n))
         elif optiune == "4":
             print(superprim(l))
