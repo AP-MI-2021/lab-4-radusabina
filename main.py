@@ -20,9 +20,19 @@ def numere_negative_nenule(l):
     return rezultat
 
 
+def test_numere_negative_nenule():
+    assert numere_negative_nenule([23, 89, 4, 56]) == []
+    assert numere_negative_nenule([-23, -5, 34, -9]) == [-23, -5, -9]
+    assert numere_negative_nenule([-4, - 10, -56]) == [-4, -10, -56]
+
+
+def test_all():
+    test_numere_negative_nenule()
+
 
 def main():
     # interfata de tip consola aici
+    test_all()
     l = []
     while True:
         print("1. Citire lista")
