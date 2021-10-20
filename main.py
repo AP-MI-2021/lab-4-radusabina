@@ -46,6 +46,11 @@ def test_este_prim():
 
 
 def superprim(l):
+    """
+    Afisarea tuturor numerelor din lista care sunt superprime
+    :param l: lista de numere intregi
+    :return: lista numerelor care sunt superprime
+    """
     rezultat = []
     for i in l:
         j = i
