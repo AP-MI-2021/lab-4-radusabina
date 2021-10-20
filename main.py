@@ -26,6 +26,41 @@ def test_numere_negative_nenule():
     assert numere_negative_nenule([-4, - 10, -56]) == [-4, -10, -56]
 
 
+def ultima_cifra(x):
+    """
+    Determina ultima cifra a unui numar
+    :param x: numarul
+    :return: ultima sa cifra
+    """
+    return x % 10
+
+
+def test_ultima_cifra():
+    assert ultima_cifra(13) == 3
+    assert ultima_cifra(458) == 8
+
+
+def cel_mai_mic_numar(l, n):
+    """
+    Afiseaza cel mai mic numar din lista care are ultima cifra egala cu cifra citita de la tastatura
+    :param l: lista de nr intregi
+    :param n: numarul introdus
+    :return: cel mai mic numar din lista care are ultima cifra egala cu cifra citita de la tastatura
+    """
+    lista_crescatoare = l[:]
+    lista_crescatoare.sort()
+    rezultat = 0
+    for i in lista_crescatoare:
+        if ultima_cifra(i) == n:
+            rezultat = i
+            return rezultat
+
+
+def test_cel_mai_mic_numar():
+    assert cel_mai_mic_numar([23, 678], 3) == 23
+    assert cel_mai_mic_numar([1, 6, 34, 68, 40, 48, 20], 8) == 48
+
+
 def este_prim(n):
     """
     Determina daca un numar este prim
@@ -69,6 +104,8 @@ def test_all():
     test_numere_negative_nenule()
     test_este_prim()
     test_superprim()
+    test_ultima_cifra()
+    test_cel_mai_mic_numar()
 
 
 def main():
@@ -78,6 +115,7 @@ def main():
     while True:
         print("1. Citire lista")
         print("2. Afișarea tuturor numerelor negative nenule din listă")
+        print("3. Afișarea celui mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură.")
         print("4. Afișarea tuturor numerelor din listă care sunt superprime.")
         print("a. Afisare lista")
         print("x. Iesire")
@@ -86,6 +124,9 @@ def main():
             l = citire_lista(l)
         elif optiune == "2":
             print(numere_negative_nenule(l))
+        elif optiune == "3":
+            n = int(input("Introduceti cifra:"))
+            print(cel_mai_mic_numar(l, n))
         elif optiune == "4":
             print(superprim(l))
         elif optiune.lower() == "a":
